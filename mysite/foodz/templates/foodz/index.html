@@ -1,0 +1,44 @@
+
+
+{% extends 'foodz/base.html'%}
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    {% block body %}
+
+
+        this is the old code
+        {% for items in item_list %}
+            <div class="row">
+                <div class="col-md-3 offset-md-2">
+                    <img class="card" height="150px" src="{{ items.item_image}}"/>
+
+                </div>
+                <div class="col-md-4">
+                    <h3>{{ items.item_name }}</h3>
+                    <h5>{{ items.item_desc }}</h5>
+                    <h6>${{ items.item_price }}</h6>
+                    <h4>{{ item.user_name}}</h4>
+                </div>
+                <div class="col-md-2">
+                    <a href="{% url 'foodz:detail' items.id %}" class="btn btn-success"><Details></Details></a>
+                </div>
+            </div>
+     
+            <ul>
+            <li>
+                <a href="">{{ items.id }} -- {{ items.item_name }}</a>
+            </li>
+            </ul>
+        {% endfor %}  
+    {% endblock %}
+</body>
+</html>
